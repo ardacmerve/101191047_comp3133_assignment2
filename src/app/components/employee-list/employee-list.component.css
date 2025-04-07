@@ -1,0 +1,23 @@
+table {
+  margin-top: 20px;
+  text-align: center;
+}
+
+th, td {
+  vertical-align: middle !important;
+}
+
+.btn-info {
+  background-color: #5bc0de;
+  border: none;
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  border: none;
+}

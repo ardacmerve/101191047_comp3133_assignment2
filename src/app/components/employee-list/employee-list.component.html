@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Employee List</h3>
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <input class="form-control" placeholder="Search by Department" [(ngModel)]="searchDept" />
+    </div>
+    <div class="col-md-4">
+      <input class="form-control" placeholder="Search by Designation" [(ngModel)]="searchDesig" />
+    </div>
+    <div class="col-md-4 d-flex gap-2">
+      <button class="btn btn-primary" (click)="search()">Search</button>
+      <button class="btn btn-secondary" (click)="clearSearch()">Clear</button>
+      <button class="btn btn-success ms-auto" routerLink="/employee-form">Add Employee</button>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="text-danger">{{ error }}</div>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Designation</th>
+        <th>Department</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.first_name }} {{ emp.last_name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.department }}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-info me-1" [routerLink]="['/employee-details', emp.id]">View</button>
+          <button class="btn btn-sm btn-warning me-1" [routerLink]="['/employee-form', emp.id]">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

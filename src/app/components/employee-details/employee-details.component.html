@@ -1,0 +1,5 @@
+<p><strong>Employee First Name:</strong> {{ employee?.first_name }}</p>
+<p><strong>Employee Last Name:</strong> {{ employee?.last_name }}</p>
+<p><strong>Employee Email ID:</strong> {{ employee?.email }}</p>
+
+<img *ngIf="employee?.employee_photo" [src]="employee?.employee_photo" />
